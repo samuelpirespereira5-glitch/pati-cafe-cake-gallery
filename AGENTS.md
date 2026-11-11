@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Café facts (address, hours, WhatsApp, social links) live only in `src/lib/site-config.ts`; empty values render "a confirmar" so nothing is invented.
+- Menu items and prices live in `src/lib/menu.ts`, copied from the café's printed menu; never add items or prices that weren't confirmed.
+- Photos are the café's real photos in `src/lib/photos.ts` with real pixel sizes; render them at their own aspect ratio (via `PhotoImage`/`PhotoGallery`) and never swap in stock images.
