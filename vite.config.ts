@@ -15,4 +15,18 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // Pre-bundle the UI libraries up front so Vite never re-optimizes them mid-session,
+    // which leaves an open preview with two React copies ("reading 'useState'" of null).
+    optimizeDeps: {
+      include: [
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react",
+      ],
+    },
+  },
 });
