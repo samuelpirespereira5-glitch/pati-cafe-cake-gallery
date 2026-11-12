@@ -2,7 +2,13 @@
  * Items and prices copied from the café's printed menu. Price is in reais;
  * `null` means the price is still to be added.
  */
-export type MenuItem = { name: string; description?: string; price: number | null };
+export type MenuItem = {
+  name: string;
+  description?: string;
+  price: number | null;
+  /** Flavours printed on the menu; the customer picks one when ordering. */
+  options?: string[];
+};
 export type MenuSection = { id: string; title: string; items: MenuItem[] };
 
 export const menuSections: MenuSection[] = [
@@ -31,7 +37,12 @@ export const menuSections: MenuSection[] = [
           "A flor fada azul traz sensação de bem-estar. Com gotas de limão, revela sua magia natural, mudando da cor azul para violeta.",
         price: 18,
       },
-      { name: "Seleção de Chás Premium Villa Piva", description: "Flores e Frutas, Bom Dia ou Bons Sonhos.", price: 7 },
+      {
+        name: "Seleção de Chás Premium Villa Piva",
+        description: "Flores e Frutas, Bom Dia ou Bons Sonhos.",
+        price: 7,
+        options: ["Flores e Frutas", "Bom Dia", "Bons Sonhos"],
+      },
     ],
   },
   {
@@ -44,6 +55,7 @@ export const menuSections: MenuSection[] = [
         name: "Empanada Argentina",
         description: "Verificar sabor do dia: frango com requeijão, carne, marguerita, quatro queijos ou vegetariana (berinjela).",
         price: 12,
+        options: ["Frango com requeijão", "Carne", "Marguerita", "Quatro queijos", "Vegetariana (berinjela)"],
       },
       { name: "Pão de Batata Recheado", description: "Requeijão.", price: 12 },
       { name: "Esfiha de Carne", price: 12 },
@@ -51,6 +63,7 @@ export const menuSections: MenuSection[] = [
         name: "Tortinha Caseira Integral",
         description: "Frango cremoso, carne com queijo, palmito com azeitonas ou peito de peru com queijo minas.",
         price: 18,
+        options: ["Frango cremoso", "Carne com queijo", "Palmito com azeitonas", "Peito de peru com queijo minas"],
       },
       { name: "Porção de Mini Salgados (6)", description: "Coxinha, bolinha de queijo e croquete de carne.", price: 15 },
     ],

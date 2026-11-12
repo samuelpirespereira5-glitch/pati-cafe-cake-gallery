@@ -1,8 +1,9 @@
 import { formatPrice, type MenuSection } from "@/lib/menu";
+import { AddToCartButton } from "./cart/AddToCartButton";
 
 export function MenuList({ section }: { section: MenuSection }) {
   return (
-    <ul className="space-y-7">
+    <ul className="space-y-8">
       {section.items.map((item) => (
         <li key={item.name} className="group">
           <div className="flex items-baseline gap-3">
@@ -14,11 +15,10 @@ export function MenuList({ section }: { section: MenuSection }) {
               {formatPrice(item.price)}
             </span>
           </div>
-          {item.description && (
-            <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted-foreground">
-              {item.description}
-            </p>
-          )}
+          <div className="mt-2 flex items-start justify-between gap-4">
+            <p className="max-w-md text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+            <AddToCartButton item={item} />
+          </div>
         </li>
       ))}
     </ul>

@@ -28,7 +28,15 @@ export const Route = createFileRoute("/galeria")({
   component: GaleriaPage,
 });
 
-const filters: ("Todas" | Photo["category"])[] = ["Todas", "Bolos", "Cafés", "Vitrine", "Ambiente"];
+const filters: ("Todas" | Photo["category"])[] = [
+  "Todas",
+  "Bolos",
+  "Sobremesas",
+  "Cafés",
+  "Pratos",
+  "Vitrine",
+  "Ambiente",
+];
 
 function GaleriaPage() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("Todas");

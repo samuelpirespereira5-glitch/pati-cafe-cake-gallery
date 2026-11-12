@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { CartButton } from "./cart/CartButton";
 import { Logo } from "./Logo";
 import { navLinks } from "./nav";
 
@@ -45,21 +46,21 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button asChild variant="cafe" size="xl" className="h-11">
-            <Link to="/contato">Venha nos visitar</Link>
+        <div className="flex items-center gap-2 lg:gap-3">
+          <CartButton />
+          <Button asChild variant="cafe" size="xl" className="hidden h-11 lg:inline-flex">
+            <Link to="/cardapio">Fazer pedido</Link>
           </Button>
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-primary lg:hidden"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-primary lg:hidden"
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
       </div>
 
       {open && (
@@ -83,8 +84,8 @@ export function Header() {
             ))}
           </ul>
           <Button asChild variant="cafe" size="xl" className="mt-6 w-full">
-            <Link to="/contato" onClick={() => setOpen(false)}>
-              Venha nos visitar
+            <Link to="/cardapio" onClick={() => setOpen(false)}>
+              Fazer pedido
             </Link>
           </Button>
         </nav>

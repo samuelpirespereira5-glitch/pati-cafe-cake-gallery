@@ -5,6 +5,11 @@ import vitrineDoces from "@/assets/fotos/vitrine-doces.png.asset.json";
 import fatiaBolo from "@/assets/fotos/fatia-bolo-creme.png.asset.json";
 import ambiente from "@/assets/fotos/ambiente-prateleiras.png.asset.json";
 import vitrineSalgados from "@/assets/fotos/vitrine-salgados.png.asset.json";
+import cookieSorvete from "@/assets/fotos/cookie-com-sorvete.png.asset.json";
+import espaguete from "@/assets/fotos/espaguete-artesanal.png.asset.json";
+import brownieSorvete from "@/assets/fotos/brownie-com-sorvete.png.asset.json";
+import baguete from "@/assets/fotos/baguete-com-chips.png.asset.json";
+import prensaBoloVulcao from "@/assets/fotos/prensa-francesa-bolo-vulcao.png.asset.json";
 
 export type Photo = {
   id: string;
@@ -13,7 +18,7 @@ export type Photo = {
   height: number;
   alt: string;
   caption: string;
-  category: "Bolos" | "Cafés" | "Vitrine" | "Ambiente";
+  category: "Bolos" | "Sobremesas" | "Cafés" | "Pratos" | "Vitrine" | "Ambiente";
 };
 
 /** The café's own photographs. Width/height are the real pixel sizes, used to keep proportions. */
@@ -81,15 +86,65 @@ export const photos = {
     caption: "Vitrine de salgados: croissant e empanadas",
     category: "Vitrine",
   },
+  cookieSorvete: {
+    id: "cookie-sorvete",
+    src: cookieSorvete.url,
+    width: 422,
+    height: 559,
+    alt: "Cookie artesanal recheado, servido com bola de sorvete e calda, em prato com flor decorativa",
+    caption: "Cookie recheado com sorvete e calda",
+    category: "Sobremesas",
+  },
+  brownieSorvete: {
+    id: "brownie-sorvete",
+    src: brownieSorvete.url,
+    width: 437,
+    height: 539,
+    alt: "Brownie de chocolate com bola de sorvete, morangos, kiwi e frutas vermelhas em prato branco",
+    caption: "Brownie com sorvete e frutas frescas",
+    category: "Sobremesas",
+  },
+  espaguete: {
+    id: "espaguete",
+    src: espaguete.url,
+    width: 564,
+    height: 564,
+    alt: "Prato de espaguete artesanal com molho, queijo ralado e salada verde ao lado",
+    caption: "Espaguete artesanal com salada",
+    category: "Pratos",
+  },
+  baguete: {
+    id: "baguete",
+    src: baguete.url,
+    width: 574,
+    height: 567,
+    alt: "Baguete recheada com carne desfiada servida com chips artesanais em tábua de madeira",
+    caption: "Baguete de carne desfiada com chips",
+    category: "Pratos",
+  },
+  prensaBoloVulcao: {
+    id: "prensa-bolo-vulcao",
+    src: prensaBoloVulcao.url,
+    width: 321,
+    height: 538,
+    alt: "Café na prensa francesa ao lado de um bolo vulcão de chocolate com calda escorrendo",
+    caption: "Café na prensa francesa e bolo vulcão",
+    category: "Cafés",
+  },
 } satisfies Record<string, Photo>;
 
-/** Gallery order: all seven photographs, none left out. */
+/** Gallery order: every photograph the café sent, none left out. */
 export const galleryPhotos: Photo[] = [
   photos.boloChocolate,
   photos.cappuccinoBandeja,
+  photos.cookieSorvete,
   photos.vitrineDoces,
+  photos.espaguete,
   photos.ambiente,
+  photos.prensaBoloVulcao,
   photos.fatiaBolo,
+  photos.baguete,
   photos.cappuccinoCanela,
+  photos.brownieSorvete,
   photos.vitrineSalgados,
 ];
